@@ -6,7 +6,7 @@
   }
 
   @for (dia of diasDoMes; track dia; let index = $index) {
-  <div pDroppable (onDrop)="soltaDia(dia)" class="dia">
+  <div pDroppable (onDrop)="soltaDia(dia, $event)" class="dia">
     @if (dia.numSemana) {
     <p class="dia_numsemana">{{ dia.numSemana }}</p>
     @for (evento of dia.eventos; track evento) {
@@ -15,6 +15,8 @@
       <p>{{ evento.nome }}</p>
     </div>
     }
+    } @else {
+    <div class="nao-arrasta"></div>
     }
   </div>
   }
