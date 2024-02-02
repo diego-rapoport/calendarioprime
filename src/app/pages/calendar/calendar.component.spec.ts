@@ -274,4 +274,10 @@ describe('CalendarComponent', () => {
   it('should return the correct days of the month of january 2024', () => {
     expect(component.retornaDiasDoMes(2024, 1) === januaryObj)
   })
+
+  it('should set eventoArrastado of component', () => {
+    const event = { nome: 'Test' }
+    component.iniciarArrastar(event)
+    expect(component.eventoArrastado === event)
+  })
 })
