@@ -19,7 +19,7 @@ type DiaCalendario = {
   styleUrl: './fullcalendar.component.scss',
 })
 export class FullcalendarComponent {
-  dataAtual: Date = new Date(2024, 1)
+  dataAtual: Date = new Date()
   mesAtual: number = this.dataAtual.getMonth()
   anoAtual: number = this.dataAtual.getFullYear()
   diasDoMes: DiaCalendario[] = this.retornaDiasDoMes(
@@ -68,17 +68,26 @@ export class FullcalendarComponent {
     this.eventoArrastado = evento
   }
 
-  soltaDia(dia: DiaCalendario) {
+  soltaDia(dia: DiaCalendario, ev: any) {
+    if (
+      ev.toElement.classList.contains('nao-arrasta') ||
+      (ev.toElement.lastElementChild &&
+        ev.toElement.lastElementChild.className &&
+        ev.toElement.lastElementChild.className === 'nao-arrasta')
+    ) {
+      this.eventoArrastado = null
+      return
+    }
     if (this.eventoArrastado) {
       const indexIda = this.diasDoMes.indexOf(dia)
       dia.eventos.push(this.eventoArrastado)
       this.diasDoMes[indexIda] = dia
     }
-    this.eventoArrastado = null
   }
 
   aoSoltarDia(dia: DiaCalendario, evento: Evento, ev: DragEvent) {
-    if (ev.dataTransfer?.dropEffect === 'none') return
+    if (ev.dataTransfer?.dropEffect === 'none' || this.eventoArrastado === null)
+      return
     const indexVinda = this.diasDoMes.indexOf(dia)
     const indexEvento = this.diasDoMes[indexVinda].eventos.indexOf(evento)
     this.diasDoMes[indexVinda].eventos.splice(indexEvento, 1)
