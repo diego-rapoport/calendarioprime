@@ -1,0 +1,21 @@
+<app-fullcalendar>
+  @for (dia of diasDoMes; track dia; let index = $index) {
+    <div pDroppable (onDrop)="soltaDia(dia, $event)" class="dia">
+      @if (dia.numSemana) {
+        <p class="dia_numsemana">{{ dia.numSemana }}</p>
+        @for (evento of dia.eventos; track evento) {
+          <div
+            pDraggable
+            (onDragStart)="iniciarArrastar(evento)"
+            (onDragEnd)="aoSoltarDia(dia, evento, $event)"
+            class="arrastavel"
+          >
+            <p>{{ evento.nome }}</p>
+          </div>
+        }
+      } @else {
+        <div class="nao-arrasta"></div>
+      }
+    </div>
+  }
+</app-fullcalendar>
