@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { FullcalendarComponent } from './fullcalendar.component'
+import { By } from '@angular/platform-browser'
 
 describe('FullcalendarComponent', () => {
   let component: FullcalendarComponent
@@ -31,5 +32,28 @@ describe('FullcalendarComponent', () => {
       'Sábado',
     ]
     expect(component.diasDaSemana === diasDaSemanaTest)
+  })
+
+  it('should render the 7 days of the week', () => {
+    const msg = fixture.debugElement.queryAll(By.css('.dia-da-semana'))
+    expect(msg.length === 7)
+  })
+
+  it('should render the 7 days of the week in order beginning with Domingo', () => {
+    const diasDaSemanaTest = [
+      'Domingo',
+      'Segunda',
+      'Terça',
+      'Quarta',
+      'Quinta',
+      'Sexta',
+      'Sábado',
+    ]
+    const msg = fixture.debugElement.queryAll(By.css('.dia-da-semana'))
+    let matches = true
+    for (let i = 0; i < msg.length; i++) {
+      if (!diasDaSemanaTest[i] === msg[i].context['$implicit']) matches = false
+    }
+    expect(matches).toBeTrue
   })
 })
