@@ -23,6 +23,13 @@ export class CalendarComponent {
   eventoArrastado: Evento | undefined | null = {
     nome: '',
   }
+  shiftDay = new Date(this.anoAtual, this.mesAtual, 1).getDay() - 1
+
+  getEventInfo($event: any) {
+    this.diasDoMes[$event?.day + this.shiftDay].eventos.push({
+      nome: $event.value,
+    })
+  }
 
   retornaDiasDoMes(anoAtual: number, mesAtual: number): DiaCalendario[] {
     const diasDoMes: DiaCalendario[] = []

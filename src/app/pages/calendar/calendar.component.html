@@ -9,7 +9,7 @@
       <p>{{ evento.nome }}</p>
     </div>
     }
-    <app-event [day]="dia.numSemana" />
+    <app-event [day]="dia.numSemana" (eventInfo)="getEventInfo($event)" />
     } @else {
     <div class="nao-arrasta"></div>
     }
