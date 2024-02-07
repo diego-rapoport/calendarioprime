@@ -1,0 +1,15 @@
+.dia {
+  border: 1px solid black;
+}
+
+.dia_numsemana {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.arrastavel {
+  border: 3px double darkgreen;
+  border-radius: 10px;
+  cursor: grabbing;
+  padding: 0.5rem;
+}

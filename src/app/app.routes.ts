@@ -2,10 +2,10 @@ import { Routes } from '@angular/router'
 
 export const routes: Routes = [
   {
-    path: 'cal',
+    path: 'calendario-mes',
     loadComponent: () =>
-      import('./components/fullcalendar/fullcalendar.component').then(
-        (m) => m.FullcalendarComponent,
+      import('./pages/calendar/calendar.component').then(
+        (m) => m.CalendarComponent,
       ),
   },
 ]
