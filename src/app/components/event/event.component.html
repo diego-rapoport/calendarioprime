@@ -1,0 +1,14 @@
+<div>
+  <p-button icon="pi pi-plus"></p-button>
+</div>
+<p-dialog header="Header" [(visible)]="visible" [modal]="true">
+  <ng-template pTemplate="header">
+    <div class="inline-flex align-items-center justify-content-center gap-2">
+      <p>Insira o nome do novo evento</p>
+    </div>
+  </ng-template>
+  <input type="text" pInputText [(ngModel)]="value" />
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="visible = false" label="Save" pAutoFocus [autofocus]="true"></p-button>
+  </ng-template>
+</p-dialog>
