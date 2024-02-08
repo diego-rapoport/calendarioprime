@@ -1,5 +1,5 @@
 .dia {
-  border: 1px solid black;
+  border: 1px solid #ffffff57;
 }
 
 .dia_numsemana {
@@ -12,6 +12,7 @@
   border-radius: 10px;
   cursor: grabbing;
   padding: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .nao-arrasta {
@@ -20,8 +21,7 @@
 
 :host ::ng-deep {
   .drop-column {
-    border: 1px solid transparent;
-    height: 10rem;
+    min-height: 10rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
