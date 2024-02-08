@@ -1,1 +1,2 @@
-<input pInputText (focusout)="sendInput()" [(ngModel)]="value" />
+<input pInputText (focusout)="sendInput()" [(ngModel)]="value" (keydown.enter)="sendInput()" [autofocus]="true"
+  pAutoFocus />

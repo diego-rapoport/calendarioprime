@@ -6,7 +6,7 @@
       <p>Insira o nome do novo evento</p>
     </div>
   </ng-template>
-  <input type="text" pInputText [(ngModel)]="value" [autofocus]="true" />
+  <input type="text" pInputText [(ngModel)]="value" [autofocus]="true" (keydown.enter)="saveNewEvent()" />
   <ng-template pTemplate="footer">
     <p-button icon="pi pi-check" (click)="visible = false" label="Save" pAutoFocus [autofocus]="true"
       (onClick)="saveNewEvent()"></p-button>
