@@ -1,5 +1,5 @@
 @if (editing) {
-<app-input-text (sendValue)="receiveInput($event)" />
+<app-input-text (sendValue)="receiveInput($event)" [value]="text" />
 } @else {
 <p>{{ text }}</p>
 <app-edit-icon (click)="startEdit()" />
