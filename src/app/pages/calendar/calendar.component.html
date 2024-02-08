@@ -1,6 +1,6 @@
 <app-fullcalendar>
   @for (dia of diasDoMes; track dia; let index = $index) {
-  <div pDroppable (onDrop)="soltaDia(dia, $event)" class="dia">
+  <div pDroppable (onDrop)="soltaDia(dia, $event)" class="dia drop-column">
     @if (dia.numSemana) {
     <p class="dia_numsemana">{{ dia.numSemana }}</p>
     @for (evento of dia.eventos; track evento) {

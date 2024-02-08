@@ -17,3 +17,17 @@
 .nao-arrasta {
   height: 100%;
 }
+
+:host ::ng-deep {
+  .drop-column {
+    border: 1px solid transparent;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.p-draggable-enter {
+      border-color: #ffffff;
+    }
+  }
+}
