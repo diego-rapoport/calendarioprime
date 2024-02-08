@@ -1,12 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { EditableTextDirective } from '../../directives/editable-text.directive'
 import { EditIconComponent } from '../../components/edit-icon/edit-icon.component'
 import { InputTextComponent } from '../../components/input-text/input-text.component'
 
 @Component({
   selector: 'app-editable-text',
   standalone: true,
-  imports: [EditableTextDirective, EditIconComponent, InputTextComponent],
+  imports: [EditIconComponent, InputTextComponent],
   templateUrl: './editable-text.component.html',
   styleUrl: './editable-text.component.scss',
 })
