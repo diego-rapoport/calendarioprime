@@ -4,11 +4,18 @@ import { EventComponent } from '../../components/event/event.component'
 import { DiaCalendario, Evento } from '../../shared/types/calendar.type'
 import { DragDropModule } from 'primeng/dragdrop'
 import { NgIf } from '@angular/common'
+import { EditableTextComponent } from '../../widgets/editable-text/editable-text.component'
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
-  imports: [FullcalendarComponent, EventComponent, DragDropModule, NgIf],
+  imports: [
+    FullcalendarComponent,
+    EventComponent,
+    DragDropModule,
+    NgIf,
+    EditableTextComponent,
+  ],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss',
 })
@@ -63,9 +70,7 @@ export class CalendarComponent {
   soltaDia(dia: DiaCalendario, ev: any) {
     if (
       ev.toElement.classList.contains('nao-arrasta') ||
-      (ev.toElement.lastElementChild &&
-        ev.toElement.lastElementChild.className &&
-        ev.toElement.lastElementChild.className === 'nao-arrasta')
+      ev.toElement.lastElementChild.nodeName !== 'APP-EDITABLE-TEXT'
     ) {
       this.eventoArrastado = null
       return
