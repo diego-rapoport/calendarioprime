@@ -1,14 +1,12 @@
-<div>
-  <p-button icon="pi pi-plus" severity="success" [outlined]="true" styleClass="button-add"
-    (click)="visible = true"></p-button>
-</div>
+<p-button icon="pi pi-plus" severity="success" [outlined]="true" styleClass="button-add"
+  (click)="visible = true"></p-button>
 <p-dialog header="Header" [(visible)]="visible" [modal]="true" [draggable]="false" [resizable]="false">
   <ng-template pTemplate="header">
     <div class="inline-flex align-items-center justify-content-center gap-2">
       <p>Insira o nome do novo evento</p>
     </div>
   </ng-template>
-  <input type="text" pInputText [(ngModel)]="value" />
+  <input type="text" pInputText [(ngModel)]="value" [autofocus]="true" />
   <ng-template pTemplate="footer">
     <p-button icon="pi pi-check" (click)="visible = false" label="Save" pAutoFocus [autofocus]="true"
       (onClick)="saveNewEvent()"></p-button>

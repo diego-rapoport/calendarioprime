@@ -3,11 +3,18 @@ import { FormsModule } from '@angular/forms'
 import { ButtonModule } from 'primeng/button'
 import { DialogModule } from 'primeng/dialog'
 import { InputTextModule } from 'primeng/inputtext'
+import { AutoFocusModule } from 'primeng/autofocus'
 
 @Component({
   selector: 'app-event',
   standalone: true,
-  imports: [DialogModule, InputTextModule, ButtonModule, FormsModule],
+  imports: [
+    DialogModule,
+    InputTextModule,
+    ButtonModule,
+    FormsModule,
+    AutoFocusModule,
+  ],
   templateUrl: './event.component.html',
   styleUrl: './event.component.scss',
 })
