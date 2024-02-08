@@ -20,5 +20,6 @@ export class EventComponent {
 
   saveNewEvent() {
     this.eventInfo.emit({ value: this.value, day: this.day ?? 0 })
+    this.value = ''
   }
 }
