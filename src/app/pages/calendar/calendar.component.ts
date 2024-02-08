@@ -52,11 +52,7 @@ export class CalendarComponent {
       else {
         diasDoMes.push({
           numSemana: i - diaInicioMes + 1,
-          eventos: [
-            {
-              nome: `Teste ${i}`,
-            },
-          ],
+          eventos: [],
         })
       }
     }
@@ -68,10 +64,7 @@ export class CalendarComponent {
   }
 
   soltaDia(dia: DiaCalendario, ev: any) {
-    if (
-      ev.toElement.classList.contains('nao-arrasta') ||
-      ev.toElement.lastElementChild.nodeName !== 'APP-EDITABLE-TEXT'
-    ) {
+    if (ev.toElement.classList.contains('nao-arrasta')) {
       this.eventoArrastado = null
       return
     }
