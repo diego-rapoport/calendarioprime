@@ -6,7 +6,7 @@
     @for (evento of dia.eventos; track evento) {
     <div pDraggable (onDragStart)="iniciarArrastar(evento)" (onDragEnd)="aoSoltarDia(dia, evento, $event)"
       class="arrastavel">
-      <app-editable-text />
+      <app-editable-text [text]="evento.nome" />
     </div>
     }
     <app-event [day]="dia.numSemana" (eventInfo)="getEventInfo($event)" />
